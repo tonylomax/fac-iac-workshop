@@ -1,0 +1,15 @@
+{
+  "name": "hello-docker",
+  "version": "1.0.0",
+  "description": "A simple hello world node server",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "tonylomax",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
