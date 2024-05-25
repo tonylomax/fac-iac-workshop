@@ -1,10 +1,7 @@
 resource "aws_ecs_cluster" "fac" {
   name = "fac"
 
-  setting {
-    name  = "containerInsights"
-    value = "enabled"
-  }
+  
 }
 
 resource "aws_ecs_task_definition" "fac-task" {
@@ -25,18 +22,13 @@ TASK_DEFINITION
 resource "aws_ecs_service" "fac-service" {
   name            = "fac-service"
   cluster         = aws_ecs_cluster.fac.id
-  task_definition = aws_ecs_task_definition.fac-task.arn
+  task_definition = 
   desired_count   = 1
 
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.foo.arn
-    container_name   = "mongo"
-    container_port   = 8080
+    
   }
 
-  placement_constraints {
-    type       = "memberOf"
-    expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
-  }
+  
 }
